@@ -86,6 +86,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
+  // Button click event handler
+  $('#submitButton').click(function() {
   // Retrieve key and value from GTM data layer
   var key = google_tag_manager['GTM-NQS769M'].dataLayer.get('key');
   var value = google_tag_manager['GTM-NQS769M'].dataLayer.get('value');
@@ -100,7 +102,8 @@ $(document).ready(function() {
     },
     error: function(xhr, status, error) {
       console.log('Error:', error); // Log any errors to the console
-    }
+    }      
+  });
   });
 });
   </script>
