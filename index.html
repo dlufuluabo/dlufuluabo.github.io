@@ -83,34 +83,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>Buy something from Dan</h1>
     <button class="cta-button" id="submitButton">Make Request</button>
   </div>
-  
-          <script>
-          function handleGTMEvent() {
-            var key = google_tag_manager["GTM-NQS769M"].dataLayer.get("key");
-            console.log("HI DAN");
-            console.log("Value of key:", key);
-          }
+ 
+$(document).ready(function() {
+  // Retrieve key and value from GTM data layer
+  var key = google_tag_manager['GTM-NQS769M'].dataLayer.get('key');
+  var value = google_tag_manager['GTM-NQS769M'].dataLayer.get('value');
 
-          if (typeof google_tag_manager !== "undefined") {
-            console.log("HERE DAN");
-            handleGTMEvent();    
-          } else {
-            window.addEventListener("gtm.js", handleGTMEvent);
-          }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-        $(document).ready(function() {
-        $('#submitButton').click(function() {
-        //var query = $('#queryInput').val();
+  // Make the API call with key and value
+  var apiUrl = 'https://httpbin.org/get?key=' + key + '&value=' + value;
+  $.ajax({
+    url: apiUrl,
+    method: 'GET',
+    success: function(data) {
+      console.log(data); // Log the API response to the console
+    },
+    error: function(xhr, status, error) {
+      console.log('Error:', error); // Log any errors to the console
+    }
+  });
+});
 
-        var apiUrl = 'https://httpbin.org/get?key=key&value=value';
-        
-        $.get(apiUrl, function(data) {
-          console.log(data); // Log the API response to the console
-        });
-      });
-    });
-  </script>
 </body>
 </html>
