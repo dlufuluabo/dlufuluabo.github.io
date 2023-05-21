@@ -7,8 +7,9 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NQS769M');
-  
-      
+</script>
+<!-- End Google Tag Manager -->
+      <script>
         function getQueryParams() {
             var query = window.location.search.substring(1);
             var queryParams = {};
@@ -27,15 +28,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         console.log(queryParams);
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(queryParams);
-        
-       // var variableValue = google_tag_manager[{{Container ID}}].macro({{Variable Name}});
-  
-        // Use the variable value as needed
-        //console.log('Variable Value:', variableValue);
-        console.log("HI DAN");
-        console.log(retData);
+    
     </script>
-<!-- End Google Tag Manager -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        $(document).ready(function() {
+        $('#submitButton').click(function() {
+        //var query = $('#queryInput').val();
+        var apiUrl = 'https://httpbin.org/get?key=key&value=value';
+
+        $.get(apiUrl, function(data) {
+          console.log(data); // Log the API response to the console
+        });
+      });
+    });
+  </script>
+  
   <title>Buy Something from Dan</title>
   <style>
     body {
@@ -85,7 +93,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <h1>Testing 1,2,3</h1>
     <h1>Buy something from Dan</h1>
-    <a class="cta-button" href="#">Shop Now</a>
+    <button class="cta-button" id="submitButton">Make Request</button>
   </div>
 </body>
 </html>
