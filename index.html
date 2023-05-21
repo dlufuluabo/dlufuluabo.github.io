@@ -28,12 +28,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         console.log(queryParams);
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(queryParams);
-        var key = google_tag_manager['GTM-NQS769M'].datalayer.get("key");
-        console.log("HI");
-        console.log(key);
+        
+
+
     </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
+        document.addEventListener('gtm.js', function() {
+          var key = google_tag_manager['GTM-NQS769M'].datalayer.get("key");
+          console.log("HI");
+          console.log(key);
+        });
         $(document).ready(function() {
         $('#submitButton').click(function() {
         //var query = $('#queryInput').val();
