@@ -84,13 +84,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="cta-button" id="submitButton">Make Request</button>
   </div>
   
+          <script>
+          function handleGTMEvent() {
+            var key = google_tag_manager["GTM-NQS769M"].dataLayer.get("key");
+            console.log("Value of key:", key);
+          }
+
+          if (typeof google_tag_manager !== "undefined") {
+            handleGTMEvent();
+          } else {
+            window.addEventListener("gtm.js", handleGTMEvent);
+          }
+        </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-        window.addEventListener('DOMContentLoaded', function() {
-          console.log("HI");
-          var key = google_tag_manager['GTM-NQS769M'].dataLayer.get('key');
-          console.log(key);
-        });
         $(document).ready(function() {
         $('#submitButton').click(function() {
         //var query = $('#queryInput').val();
