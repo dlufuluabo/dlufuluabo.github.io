@@ -13,12 +13,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         function getQueryParams() {
             var query = window.location.search.substring(1);
             var queryParams = {};
-            var vars = query.split("&");
+            var vars = query.split("&");//& indicates each <K,V> Pair
             for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split("=");
+                var pair = vars[i].split("="); //split the equals sign to assin both the key and calue
                 var key = decodeURIComponent(pair[0]);
                 var value = decodeURIComponent(pair[1]);
-                queryParams[key] = value;
+                queryParams[key] = value; //attaching the Key value pair to be sent to the GTM data layer
             }
             return queryParams;
         }
@@ -27,7 +27,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         var queryParams = getQueryParams();
         console.log(queryParams);
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push(queryParams);
+        window.dataLayer.push(queryParams); 
+        //learnt that this will allow GTM to handle these parameters later using google_tag_manager
         
 
 
@@ -92,7 +93,7 @@ $(document).ready(function() {
   var key = google_tag_manager['GTM-NQS769M'].dataLayer.get('key');
   var value = google_tag_manager['GTM-NQS769M'].dataLayer.get('value');
 
-  // Make the API call with key and value
+  // Make the API call with key and value attained from the GTM
   var apiUrl = 'https://httpbin.org/get?key=' + key + '&value=' + value;
   $.ajax({
     url: apiUrl,
@@ -101,7 +102,7 @@ $(document).ready(function() {
       console.log(data); // Log the API response to the console
     },
     error: function(xhr, status, error) {
-      console.log('Error:', error); // Log any errors to the console
+      console.log('Error:', error); // Log any errors to the console - playing with some handling of errors in AJAX. :)
     }      
   });
   });
