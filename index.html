@@ -87,11 +87,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <script>
           function handleGTMEvent() {
             var key = google_tag_manager["GTM-NQS769M"].dataLayer.get("key");
+            console.log("HI DAN");
             console.log("Value of key:", key);
           }
 
           if (typeof google_tag_manager !== "undefined") {
-            handleGTMEvent();
+            console.log("HERE DAN");
+            handleGTMEvent();    
           } else {
             window.addEventListener("gtm.js", handleGTMEvent);
           }
