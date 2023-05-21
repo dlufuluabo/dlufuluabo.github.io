@@ -32,26 +32,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-        document.addEventListener('gtm.js', function() {
-          var key = google_tag_manager['GTM-NQS769M'].datalayer.get("key");
-          console.log("HI");
-          console.log(key);
-        });
-        $(document).ready(function() {
-        $('#submitButton').click(function() {
-        //var query = $('#queryInput').val();
-
-        var apiUrl = 'https://httpbin.org/get?key=key&value=value';
-        
-        $.get(apiUrl, function(data) {
-          console.log(data); // Log the API response to the console
-        });
-      });
-    });
-  </script>
-  
   <title>Buy Something from Dan</title>
   <style>
     body {
@@ -103,5 +83,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>Buy something from Dan</h1>
     <button class="cta-button" id="submitButton">Make Request</button>
   </div>
+  
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        document.addEventListener('gtm.js', function() {
+          var key = google_tag_manager['GTM-NQS769M'].dataLayer.get("key");
+          console.log("HI");
+          console.log(key);
+        });
+        $(document).ready(function() {
+        $('#submitButton').click(function() {
+        //var query = $('#queryInput').val();
+
+        var apiUrl = 'https://httpbin.org/get?key=key&value=value';
+        
+        $.get(apiUrl, function(data) {
+          console.log(data); // Log the API response to the console
+        });
+      });
+    });
+  </script>
 </body>
 </html>
