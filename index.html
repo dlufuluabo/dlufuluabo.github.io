@@ -35,8 +35,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         $(document).ready(function() {
         $('#submitButton').click(function() {
         //var query = $('#queryInput').val();
+        var key = google_tag_manager['GTM-NQS769M'].datalayer.get("key");
+        console.log("HI");
+        console.log(key);
         var apiUrl = 'https://httpbin.org/get?key=key&value=value';
-
+        
         $.get(apiUrl, function(data) {
           console.log(data); // Log the API response to the console
         });
