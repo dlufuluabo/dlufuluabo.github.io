@@ -86,9 +86,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-        document.addEventListener('gtm.js', function() {
-          var key = google_tag_manager['GTM-NQS769M'].dataLayer.get("key");
+        window.addEventListener('DOMContentLoaded', function() {
           console.log("HI");
+          var key = google_tag_manager['GTM-NQS769M'].dataLayer.get('key');
           console.log(key);
         });
         $(document).ready(function() {
